@@ -1,0 +1,268 @@
+.navbar {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: linear-gradient(rgba(64, 224, 208, 0.2), black);
+  text-shadow: 1px 1px 3px black;
+}
+
+.profile {
+  font-size: large;
+  font-family: "Montserrat", "Gill Sans";
+  text-transform: uppercase;
+  word-spacing: 0.25rem;
+}
+
+.intro {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "PT Sans", "Times New Roman", Times, serif;
+}
+
+.experience {
+  font-size: large;
+}
+
+.my-pic {
+  transform: rotate(-1deg) translateY(1rem);
+}
+
+.detail-container {
+  border-radius: 48% 25% 50% 50%;
+}
+
+.about-pannel {
+  cursor: pointer;
+}
+
+#about-me .active {
+  color: turquoise;
+  text-shadow: 0 0 10px teal;
+  font-size: 1.05rem;
+}
+
+.about_lower-bar {
+  height: 3px;
+  width: 100%;
+  background-color: grey;
+  border-radius: 3rem;
+}
+
+.active .about_lower-bar {
+  background-color: turquoise;
+  animation: expand-slowly 0.5s 1 forwards ease-in-out;
+}
+
+.hide {
+  height: 0;
+  overflow: hidden;  
+  transition: all 0.5;
+}
+
+.detail,.work-detail {
+  transition:all 0.5s;
+  background-color: inherit;
+}
+
+.detail.show,
+.work-detail.show {
+  transform: translateX(0rem);
+  opacity: 1;
+}
+
+.detail.hide,
+.work-detail.hide {
+  transform: translateX(-50rem);
+  opacity: 0;
+}
+.image-background-gradient {
+  background: radial-gradient(teal, turquoise, black);
+  border-radius: 48% 25% 50% 50%;
+  overflow: hidden;
+}
+
+@keyframes expand-slowly {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.text-turquoise {
+  color: turquoise;
+}
+
+.text-turquoise-dim {
+  color: #1db5a6;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", "Gill Sans";
+}
+
+.font-pt-sans {
+  font-family: "PT Sans", "Times New Roman", Times, serif;
+}
+.section-heading{
+    font-family: 'Open sans','system-ui';
+    color: rgb(216, 216, 216);
+}
+.home-text-color {
+  color: rgb(200, 200, 200);
+}
+
+.detail-icon-section i {
+  font-size: 10rem;
+}
+
+.my-services .card,
+.my-work .card {
+  padding: 0 0.5rem 0 0;
+  background-color: transparent;
+  transition: all 0.5s;
+}
+
+.my-services .card:hover,
+.my-work .card:hover,
+.my-work .card.active {
+  text-shadow: 0px 0px 1px white;
+  transform: scale(1.05);
+  background: linear-gradient(
+    to bottom right,
+    rgb(0, 0, 0, 0.3),
+    rgb(0, 0, 0, 0.5)
+  );
+  border-radius: 3rem 1rem 3rem 3rem;
+}
+.my-work .card.active {
+  margin-top: 1rem;
+}
+
+.home-element-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.service-icon {
+  font-size: 5rem;
+  padding: 1rem 0 1rem 0;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.my-work .card{
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.work-icon {
+  font-size: 4rem;
+  padding: 1rem 0 1rem 0;
+  color: rgba(64, 224, 208, 0.466);
+}
+
+.card:hover .work-icon{
+  color: turquoise;
+}
+
+.fa-leaf{
+  font-size: 3rem;
+}
+.scroll-button{
+    font-size: 3rem;
+    text-shadow: 1px 1px 2px black;
+    
+}
+.scroll-button-container{
+    
+    border-radius: 50%;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+#scroll-button{
+    animation: move-up-down 0.8s alternate-reverse ease-in-out infinite;    
+}
+@keyframes move-up-down {
+    from{
+        transform: translateY(0.7rem);
+    }
+      to{
+        transform: translateY(-0.7rem);
+    }
+    
+}
+.work-detail{width:75%}
+.contactLinks{
+  text-decoration: none;
+  font-family: "pt sans", "Gill Sans";
+  color: inherit;
+  text-align: center;
+  font-size: larger;
+  padding: 0.3rem;
+  border: 2px solid #ffffff40;
+  border-radius: 0.5rem;
+  transition: all 0.5s;
+}
+.contactLinks:hover{
+  color: black;
+  text-shadow: 1px 0 8px grey;
+  border: 2px solid #1db5a6;
+  background-color: teal;
+  color: #000 !important;
+  font-weight: bold;
+}
+.contactLinks .fa-solid, 
+.contactLinks .fa-brands{
+    color: #1db5a6;
+    font-size: 1.5rem;
+    vertical-align: text-top;
+    margin-right: 0.5rem;
+}
+.contactLinks:hover .fa-solid, 
+.contactLinks:hover .fa-brands{
+    color: black;
+    
+}
+.resumeButton{
+  font-size: x-large;
+  font-family: "Montserrat", "Gill Sans";
+}
+@media only screen and (max-width: 600px) {
+  .home-element-container {
+    height: 100%;
+  }
+
+  .detail-icon-section i {
+    font-size: 5rem;
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    padding-bottom: 1rem;
+  }
+  .my-services .card, .my-work .card {
+    /* border : 2px solid red; */
+    padding: 0;
+  }
+
+  .work-icon{
+    font-size: 2rem;
+  }
+  .fa-leaf{
+    font-size: 1.5rem;
+  }
+  .work-detail{width:100%}
+  .resumeButton{
+
+  }
+}
