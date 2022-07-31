@@ -1,92 +1,90 @@
-.navbar {
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  background: linear-gradient(rgba(64, 224, 208, 0.2), black);
-  text-shadow: 1px 1px 3px black;
+#homeComponent{
+  --app-accent-color-primary:rgb(51, 230, 212);
+  --app-accent-color-secondary:rgb(77, 204, 195);
+  --app-accent-color-tertiary:rgb(15, 181, 181);
+  --navbar-tint-color: rgb(64, 224, 208,0.2);
+  --default-text-color:rgb(200, 200, 200);
+  --heading-text-color:rgb(216, 216, 216);
+  
 }
-/* #home-body{
-  height: 95vh ;
-  overflow: hidden;
-} */
-.profile {
-  font-size: large;
+
+.text-color-accent-primary {
+  color: var(--app-accent-color-primary);
+}
+
+.text-color-accent-secondary {
+  color: var(--app-accent-color-secondary)
+}
+
+.font-montserrat {
   font-family: "Montserrat", "Gill Sans";
-  text-transform: uppercase;
+}
+
+.font-pt-sans {
+  font-family: "PT Sans", "Times New Roman", Times, serif ;
+}
+.section-heading {
+  font-family: "Open sans", "system-ui";
+  color: var(--heading-text-color);
+}
+
+.home-text-color {
+  color: var(--default-text-color)
+}
+
+.word-spacing-point-25-rem {  
   word-spacing: 0.25rem;
 }
 
-.intro {
-  font-size: 2.5rem;
-  font-weight: bold;
-  font-family: "PT Sans", "Times New Roman", Times, serif;
+.cursor-pointer {
+  cursor: pointer;
 }
 
-.experience {
-  font-size: large;
+.home-element-container {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar {
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background: linear-gradient(var(--navbar-tint-color), black);
+  text-shadow: 1px 1px 3px black;
+}
+
+.image-background-gradient {
+  background: radial-gradient(var(--app-accent-color-tertiary), var(--app-accent-color-primary), black);
+  border-radius: 48% 25% 50% 50%;
+  overflow: hidden;
 }
 
 .my-pic {
   transform: rotate(-1deg) translateY(1rem);
 }
 
-.detail-container {
+.app-accent-border-radius {
   border-radius: 48% 25% 50% 50%;
 }
 
-.about-pannel {
-  cursor: pointer;
-}
-
-#about-me .active {
-  color: turquoise;
-  text-shadow: 0 0 10px teal;
+#about-me .about-active-pannel {
+  color: var(--app-accent-color-primary);
+  text-shadow: 0 0 10px var(--app-accent-color-tertiary);
   font-size: 1.05rem;
 }
 
-.about_lower-bar {
+#about-me .about_lower-bar {
   height: 3px;
   width: 100%;
   background-color: grey;
   border-radius: 3rem;
 }
 
-.active .about_lower-bar {
-  background-color: rgb(64, 224, 208);
+#about-me .about-active-pannel .about_lower-bar {
+  background-color: var(--app-accent-color-primary);
   animation: expand-slowly 0.5s 1 forwards ease-in-out;
 }
-
-.hide {
-  height: 0;
-  overflow: hidden;  
-  transition: all 0.5;
-}
-.about-detail-container{
-  overflow: hidden;
-}
-.detail,.work-detail {
-  transition:all 1s;
-  background-color: inherit;
-}
-
-.detail.show,
-.work-detail.show {
-  transform: translateX(0rem);
-  opacity: 1;
-  z-index: 0;
-}
-
-.detail.hide,
-.work-detail.hide {
-  transform: translateX(-30vw);
-  opacity: 0;
-  z-index: -1;
-}
-.image-background-gradient {
-  background: radial-gradient(teal, turquoise, black);
-  border-radius: 48% 25% 50% 50%;
-  overflow: hidden;
-}
-
 @keyframes expand-slowly {
   from {
     width: 0%;
@@ -97,127 +95,103 @@
   }
 }
 
-.text-turquoise {
-  color: turquoise;
+.about-detail-container {
+  overflow: hidden;
+}
+.about-detail-section,
+.work-detail {
+  transition: opacity 1s,transform 1s;
+  background-color: inherit;
 }
 
-.text-turquoise-dim {
-  color: #1db5a6;
+.hide {
+  height: 0;
+  overflow: hidden;
 }
 
-.font-montserrat {
-  font-family: "Montserrat", "Gill Sans";
+.about-detail-section.show,
+.work-detail.show {
+  transform: translateX(0rem);
+  width: 100%;
+  opacity: 1;
 }
 
-.font-pt-sans {
-  font-family: "PT Sans", "Times New Roman", Times, serif;
-}
-.section-heading{
-    font-family: 'Open sans','system-ui';
-    color: rgb(216, 216, 216);
-}
-.home-text-color {
-  color: rgb(200, 200, 200);
+.about-detail-section.hide,
+.work-detail.hide {
+  transform: translateX(-30vw);
+  width: 0%;
+  opacity: 0;
 }
 
 .detail-icon-section i {
   font-size: 10rem;
 }
 
-.my-services .card,
-.my-work .card {
+#services .card,
+#my-work .card {
   padding: 0 0.5rem 0 0;
   background-color: transparent;
   transition: all 0.5s;
-}
-
-.my-work .card-body {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.my-services .card:hover,
-.my-work .card:hover,
-.my-work .card.active {
-  text-shadow: 0px 0px 1px white;
-  transform: scale(1.05);
-  background: linear-gradient(
-    to bottom right,
-    rgba(38, 89, 88, 0.3),
-    rgba(1, 17, 16, 0.5)
-  );
-  border-radius: 3rem 1rem 3rem 3rem;
-}
-
-.my-work .card.active {
-  margin-top: 1rem;
-}
-
-.home-element-container {
-  height: 95vh;
-  display: flex;
-  align-items: center;
-  width: 100%;
 }
 
 .service-icon {
   font-size: 5rem;
   padding: 1rem 0 1rem 0;
   color: rgba(255, 255, 255, 0.25);
+} 
+
+#my-work .card-body {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.my-work .card{
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
+#services .card:hover,
+#my-work .card:hover,
+#my-work .card.work-active-pannel {
+  text-shadow: 0px 0px 1px white;
+  transform: scale(1.05);
+  background: linear-gradient(
+    to bottom right,
+    var(--navbar-tint-color),
+    rgba(1, 17, 16, 0.5)
+  );
+  border-radius: 3rem 1rem 3rem 3rem;
   
+}
+
+#my-work .card.work-active-pannel {
+  margin-top: 1rem;
+}
+
+.my-work .card {
   width: -moz-fit-content;
   width: fit-content;
 }
-
+.work-redirect-button {
+  background-color: var(--app-accent-color-tertiary);
+  white-space: nowrap;
+  color: white;
+}
 .work-icon {
   font-size: 2rem;
   padding: 1rem 0 1rem 0;
-  color: rgba(64, 224, 208, 0.466);
+  color: var(--app-accent-color-primary);
+  opacity: 0.4;
+}
+.work-detail {
+  width: 75%;
+}
+.card:hover .work-icon,.work-active-pannel .work-icon {
+  opacity: 1;
 }
 
-.card:hover .work-icon{
-  color: turquoise;
-}
-
-.fa-leaf{
+.fa-leaf {
   font-size: 1.5rem;
 }
-.scroll-button{
-    font-size: 3rem;
-    text-shadow: 1px 1px 2px black;
-    
-}
-.scroll-button-container{
-    
-    border-radius: 50%;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
-}
 
-#scroll-button{
-    animation: move-up-down 0.8s alternate-reverse ease-in-out infinite;    
-}
-@keyframes move-up-down {
-    from{
-        transform: translateY(0.7rem);
-    }
-      to{
-        transform: translateY(-0.7rem);
-    }
-    
-}
-.work-detail{width:75%}
-.contactLinks{
+.contactLinks {
   text-decoration: none;
   font-family: "pt sans", "Gill Sans";
   color: inherit;
@@ -228,7 +202,7 @@
   border-radius: 0.5rem;
   transition: all 0.5s;
 }
-.contactLinks:hover{
+.contactLinks:hover {
   color: black;
   text-shadow: 1px 0 8px grey;
   border: 2px solid #1db5a6;
@@ -236,27 +210,45 @@
   color: #000 !important;
   font-weight: bold;
 }
-.contactLinks .fa-solid, 
-.contactLinks .fa-brands{
-    color: #1db5a6;
-    font-size: 1.5rem;
-    vertical-align: text-top;
-    margin-right: 0.5rem;
+.contactLinks .fa-solid,
+.contactLinks .fa-brands {
+  color: var(--app-accent-color-secondary);
+  font-size: 1.5rem;
+  vertical-align: text-top;
+  margin-right: 0.5rem;
 }
-.contactLinks:hover .fa-solid, 
-.contactLinks:hover .fa-brands{
-    color: black;
-    
+.contactLinks:hover .fa-solid,
+.contactLinks:hover .fa-brands {
+  color: black;
 }
-.resumeButton{
+.resumeButton {
   font-size: x-large;
   font-family: "Montserrat", "Gill Sans";
 }
-.work-redirect-button{
-  background-color: rgb(64, 224, 208,0.5);
-  white-space: nowrap;
-  color: white;
+
+
+#scrollButtonIcon {
+  animation: move-up-down 0.8s alternate-reverse ease-in-out infinite;
 }
+@keyframes move-up-down {
+  from {
+    transform: translateY(0.7rem);
+  }
+  to {
+    transform: translateY(-0.7rem);
+  }
+}
+.scroll-button {
+  font-size: 3rem;
+  text-shadow: 1px 1px 2px black;
+}
+.scroll-button-container {
+  border-radius: 50%;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 800px) {
   .home-element-container {
     height: 100%;
@@ -270,20 +262,20 @@
     font-size: 3rem;
     padding-bottom: 1rem;
   }
-  .my-services .card, .my-work .card {
+  .my-services .card,
+  .my-work .card {
     /* border : 2px solid red; */
     padding: 0;
   }
 
-  .work-icon{
+  .work-icon {
     font-size: 2rem;
   }
-  .fa-leaf{
+  .fa-leaf {
     font-size: 1.5rem;
   }
-  .work-detail{width:100%}
-  /* #home-body{
-  height: 100%;
-  overflow: scroll;
-  } */
+  .work-detail {
+    width: 100%;
+  }
+  
 }
