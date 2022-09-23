@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { AfterViewInit, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +6,7 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
   
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   sectionIndex: number = 1;
   containers = document.getElementsByClassName('home-element-container');
   sections: [Element | null] = [this.containers[0]];
@@ -69,17 +69,29 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     document.getElementById('scrollButton')?.focus();
-    setTimeout(() => {
-      document
-        .getElementById('aboutSkillDetail')
-        ?.classList.replace('hide', 'show');
-      document
-        .getElementById('aboutSkillIcon')
-        ?.classList.replace('hide', 'show');
-    }, 500);
+    // setTimeout(() => {
+    //   document
+    //     .getElementById('aboutSkillDetail')
+    //     ?.classList.replace('hide', 'show');
+    //   document
+    //     .getElementById('aboutSkillIcon')
+    //     ?.classList.replace('hide', 'show');
+    // }, 500);
 
     // //to get the parent element of all containers
     for (let i = 0; i < this.containers.length; i++)
       this.sections.push(this.containers[i]);
+  }
+  ngAfterViewInit(): void {
+    let sections = document.querySelectorAll('.home-element-container');
+    let observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('visible-section', entry.isIntersecting && entry.intersectionRatio>0.3);
+        
+      });
+    }, {
+      threshold:0.5
+    });
+    sections.forEach(section=>observer.observe(section));
   }
 }

@@ -41,7 +41,7 @@
 }
 
 .home-element-container {
-  height: 95vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   width: 100%;
@@ -172,7 +172,7 @@
 .work-redirect-button {
   background-color: var(--app-accent-color-tertiary);
   white-space: nowrap;
-  color: white;
+  /* color: white; */
 }
 .work-icon {
   font-size: 2rem;
@@ -205,8 +205,8 @@
 .contactLinks:hover {
   color: black;
   text-shadow: 1px 0 8px grey;
-  border: 2px solid #1db5a6;
-  background-color: teal;
+  border: 2px solid teal;
+  background-color: var(--app-accent-color-secondary);
   color: #000 !important;
   font-weight: bold;
 }
@@ -248,6 +248,16 @@
   margin-bottom: 1rem;
   cursor: pointer;
 }
+.home-element-container{
+  transition: all 1s;
+  filter: blur(4px);
+  opacity: 0;
+}
+.home-element-container.visible-section{
+  filter:blur(0px);
+  opacity: 1;
+}
+
 
 @media only screen and (max-width: 800px) {
   .home-element-container {
